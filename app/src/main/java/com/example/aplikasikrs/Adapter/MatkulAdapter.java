@@ -13,18 +13,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.aplikasikrs.AddDosenActivity;
-import com.example.aplikasikrs.DosenActivity;
-import com.example.aplikasikrs.Model.Dosen;
+import com.example.aplikasikrs.AddMatkulActivity;
+import com.example.aplikasikrs.MatkulActivity;
+import com.example.aplikasikrs.Model.Matkul;
 import com.example.aplikasikrs.R;
 
 import java.util.ArrayList;
 
-public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> {
+public class MatkulAdapter extends RecyclerView.Adapter<MatkulAdapter.ViewHolder> {
 
-    private ArrayList<Dosen> datalist;
+    private ArrayList<Matkul> datalist;
     Context mContext;
-    public DosenAdapter(ArrayList<Dosen> datalist) {
+    public MatkulAdapter(ArrayList<Matkul> datalist) {
         this.datalist = datalist;
     }
 
@@ -33,24 +33,23 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.dosen_list_layout, parent, false);
+        View view = layoutInflater.inflate(R.layout.matkul_list_layout, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         holder.txtNama.setText(datalist.get(position).getNama());
-        holder.txtnidn.setText(datalist.get(position).getNidn());
-        holder.txtgelar.setText(datalist.get(position).getGelar());
-        holder.txtalamat.setText(datalist.get(position).getAlamat());
-        holder.txtemail.setText(datalist.get(position).getEmail());
-        holder.foto.setImageResource(datalist.get(position).getFoto());
+        holder.txtkode.setText(datalist.get(position).getKode_matkul());
+        holder.txthari.setText(datalist.get(position).getHari());
+        holder.txtsks.setText(datalist.get(position).getSks());
+        holder.txtsesi.setText(datalist.get(position).getSesi());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent inten = new Intent(holder.itemView.getContext(), AddDosenActivity.class);
-                inten.putExtra("dosen",datalist.get(position));
+                Intent inten = new Intent(holder.itemView.getContext(), AddMatkulActivity.class);
+                inten.putExtra("Matkul",datalist.get(position));
                 inten.putExtra("position", position);
                 ((Activity) mContext).startActivityForResult(inten,2);
             }
@@ -64,18 +63,14 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtNama, txtnidn, txtgelar, txtalamat, txtemail;
-        private ImageView foto;
+        private TextView txtNama, txtkode, txthari, txtsesi, txtsks;
         public ViewHolder(View view){
             super(view);
-            txtnidn = view.findViewById(R.id.TxtNIDN);
-            txtNama = view.findViewById(R.id.TxtNama);
-            txtgelar = view.findViewById(R.id.TxtGelar);
-            txtalamat = view.findViewById(R.id.TxtAlamat);
-            txtemail = view.findViewById(R.id.TxtEmail);
-            foto = view.findViewById(R.id.ImgDosen);
-
-
+            txtkode = view.findViewById(R.id.TxtKode);
+            txtNama = view.findViewById(R.id.TxtNamaMakul);
+            txthari = view.findViewById(R.id.TxtHari);
+            txtsesi = view.findViewById(R.id.TxtSesi);
+            txtsks = view.findViewById(R.id.TxtSKS);
 
 
         }

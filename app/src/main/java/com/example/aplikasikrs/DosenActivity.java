@@ -42,6 +42,7 @@ public class DosenActivity extends AppCompatActivity {
                 startActivityForResult(inten,1);
             }
         });
+
     }
 
 
@@ -61,6 +62,12 @@ public class DosenActivity extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             Dosen dosen = data.getParcelableExtra("dosen");
             dosenArrayList.add(dosen);
+            dosenAdapter.notifyDataSetChanged();
+        }
+        else if(requestCode == 2 && resultCode == RESULT_OK) {
+            Dosen dosen = data.getParcelableExtra("dosen");
+            int pos = data.getIntExtra("position", -1);
+            dosenArrayList.set(pos,dosen);
             dosenAdapter.notifyDataSetChanged();
         }
     }

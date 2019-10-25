@@ -30,6 +30,13 @@ public class AdminHome extends AppCompatActivity {
                 startActivity(inten);
             }
         });
+        daftarmakul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inten = new Intent(AdminHome.this, MatkulActivity.class);
+                startActivity(inten);
+            }
+        });
 
 
 
