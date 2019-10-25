@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DosenHome"></activity>
+        <activity android:name=".AddDosenActivity"></activity>
+        <activity android:name=".DosenActivity" />
+        <activity android:name=".DosenHome" />
         <activity android:name=".AdminHome" />
         <activity android:name=".MainActivity">
             <intent-filter>
