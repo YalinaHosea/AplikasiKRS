@@ -3,6 +3,7 @@ package com.example.aplikasikrs;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,6 +16,11 @@ public class AdminHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
+
+        SharedPreferences prefs = getSharedPreferences("user", MODE_PRIVATE);
+        String name = prefs.getString("name", "No name defined");
+        setTitle("SI KRS - Hai " + name);
+
 
         datadiri = findViewById(R.id.BtnDataDiri);
         daftardosen = findViewById(R.id.BtnDaftarDosen);
@@ -44,6 +50,21 @@ public class AdminHome extends AppCompatActivity {
                 startActivity(inten);
             }
         });
+        kelolakrs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inten = new Intent(AdminHome.this, KRSActivity.class);
+                startActivity(inten);
+            }
+        });
+        datadiri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inten = new Intent(AdminHome.this, DataDiriActivity.class);
+                startActivity(inten);
+            }
+        });
+
 
 
 

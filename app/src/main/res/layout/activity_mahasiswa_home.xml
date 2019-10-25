@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DosenHome">
+    tools:context=".MahasiswaHome">
 
     <LinearLayout
         android:id="@+id/Line1"
@@ -21,7 +21,7 @@
             android:gravity="center"
             android:layout_margin="10dp">
             <ImageView
-                android:id="@+id/BtnDataDiriDosen"
+                android:id="@+id/BtnDataDiriMahasiswa"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/smile" />

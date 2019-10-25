@@ -9,7 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddMahasiswaActivity"></activity>
+        <activity android:name=".Splash"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DataDiriMahasiswaActivity" />
+        <activity android:name=".MahasiswaHome" />
+        <activity android:name=".DataDiriDosenActivity" />
+        <activity android:name=".DataDiriActivity" />
+        <activity android:name=".KelasActivity" />
+        <activity android:name=".AddKRSActivity" />
+        <activity android:name=".KRSActivity" />
+        <activity android:name=".AddMahasiswaActivity" />
         <activity android:name=".MahasiswaActivity" />
         <activity android:name=".AddMatkulActivity" />
         <activity android:name=".MatkulActivity" />
@@ -17,12 +32,10 @@
         <activity android:name=".DosenActivity" />
         <activity android:name=".DosenHome" />
         <activity android:name=".AdminHome" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

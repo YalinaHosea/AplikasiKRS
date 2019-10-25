@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,11 @@ public class MahasiswaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahasiswa);
+
+        SharedPreferences prefs = getSharedPreferences("user", MODE_PRIVATE);
+        String name = prefs.getString("name", "No name defined");
+        setTitle("SI KRS - Hai " + name);
+
 
         Button btnadd = findViewById(R.id.BtnAddMahasiswa);
         addData();

@@ -14,16 +14,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.aplikasikrs.Model.Matkul;
-import com.example.aplikasikrs.Model.Matkul;
+import com.example.aplikasikrs.Model.KRS;
+import com.example.aplikasikrs.Model.KRS;
 
-public class AddMatkulActivity extends AppCompatActivity {
+public class AddKRSActivity extends AppCompatActivity {
 
-    Matkul matkul;
-    EditText txtkode, txtnama, txtsks;
+    KRS KRS;
+    EditText txtkode, txtnama, txtsks, txtjumlah;
     Button btnsubmit;
-    Spinner spinhari, spinsesi;
-    String hari, sesi;
+    Spinner spinhari, spinsesi, spindosen;
+    String hari, sesi, dosen;
     int pos;
     private String[] hariarray = {
             "Senin",
@@ -38,29 +38,40 @@ public class AddMatkulActivity extends AppCompatActivity {
             "2", "3",
             "4"
     };
+    private String[] dosenarray = {
+            "Katon Wijana",
+            "Eric Kurniawan", "Argo Wibomo",
+            "Umi Proboyekti",
+            "Yetli Oslan"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_matkul);
+        setContentView(R.layout.activity_add_krs);
         SharedPreferences prefs = getSharedPreferences("user", MODE_PRIVATE);
         String name = prefs.getString("name", "No name defined");
         setTitle("SI KRS - Hai " + name);
 
 
-        txtkode = findViewById(R.id.TxtKodeMatkul);
-        txtnama = findViewById(R.id.TxtNamaMatkulAdd);
+        txtkode = findViewById(R.id.TxtKodeKRS);
+        txtnama = findViewById(R.id.TxtNamaKRSAdd);
         txtsks = findViewById(R.id.TxtSKSadd);
-        spinhari = findViewById(R.id.SpinHari);
-        spinsesi = findViewById(R.id.SpinSesi);
-        btnsubmit = findViewById(R.id.btnsubmit);
+        txtjumlah = findViewById(R.id.TxtPesertaKRSAdd);
+        spinhari = findViewById(R.id.SpinHariKRS);
+        spinsesi = findViewById(R.id.SpinSesiKRS);
+        spindosen = findViewById(R.id.SpinDosenKRS);
+        btnsubmit = findViewById(R.id.btnsubmitKRS);
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, hariarray);
         final ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, sesiarray);
+        final ArrayAdapter<String> adapter3 = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, dosenarray);
         spinsesi.setAdapter(adapter2);
         spinhari.setAdapter(adapter);
+        spindosen.setAdapter(adapter3);
 
         spinhari.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -84,14 +95,26 @@ public class AddMatkulActivity extends AppCompatActivity {
 
             }
         });
+        spindosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                dosen = adapter3.getItem(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         Intent inten = getIntent();
-        Matkul dsn = inten.getParcelableExtra("Matkul");
+        KRS dsn = inten.getParcelableExtra("KRS");
         pos = inten.getIntExtra("position",-1);
         if(dsn != null){
-            txtkode.setText(dsn.getKode_matkul());
+            txtkode.setText(dsn.getKode_krs());
             txtnama.setText(dsn.getNama());
             txtsks.setText(dsn.getSks());
+            txtjumlah.setText(dsn.getJumlah());
 
         }
 
@@ -100,9 +123,9 @@ public class AddMatkulActivity extends AppCompatActivity {
         btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                matkul = new Matkul(txtkode.getText().toString(),txtnama.getText().toString(),hari,txtsks.getText().toString(),sesi);
+                KRS = new KRS(txtkode.getText().toString(),txtnama.getText().toString(),hari,txtsks.getText().toString(),sesi,dosen,txtjumlah.getText().toString());
                 Intent returnIntent = new Intent();
-                returnIntent.putExtra("Matkul",matkul);
+                returnIntent.putExtra("KRS",KRS);
                 if(pos != -1){
                     returnIntent.putExtra("position", pos);
                 }

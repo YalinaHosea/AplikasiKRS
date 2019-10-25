@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DataDiriMahasiswaActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Nama"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/TxtNamaMahasiswaAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="Nama"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="70dp"
+                    android:textAlignment="viewStart"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="NIM"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/TxtNIMAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="NIM"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="70dp"
+                    android:textAlignment="viewStart"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Alamat"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/TxtAlamatMahasiswaAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="Alamat"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="70dp"
+                    android:textAlignment="viewStart"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="E-mail"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/TxtEmailMahasiswaAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="E-mail"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="70dp"
+                    android:textAlignment="viewStart"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Foto"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/BtnAddFoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Foto"/>
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnsubmitmahasiswa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SIMPAN"
+                android:background="@drawable/rounded_shape"
+                android:layout_margin="20dp"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

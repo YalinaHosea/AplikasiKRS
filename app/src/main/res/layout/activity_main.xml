@@ -6,7 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/Logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SI - KRS"
+        android:textSize="50sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textColor="#26C0C0"/>
+    <LinearLayout
+        android:layout_below="@+id/Logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="user: admin pass: admin"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="user: dosen pass: dosen"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="user: yalina pass: yalina"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
    <EditText
+       android:layout_marginTop="50dp"
        android:id="@+id/TxtEmail"
        android:layout_width="300dp"
        android:layout_height="50dp"
